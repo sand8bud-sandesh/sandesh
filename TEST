@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💘 Valentine?</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 100px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="question">Will you be my Valentine? 💖</h1>
+
+  <button onclick="yes()">Yes 💘</button>
+  <button onclick="no()">No 💔</button>
+
+  <script>
+    function yes() {
+      document.getElementById("question").innerText =
+        "YAY!!! 🥰💕";
+    }
+
+    function no() {
+      alert("Wrong answer 😏");
+    }
+  </script>
+
+</body>
+</html>
