@@ -1,67 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>💘 Valentine?</title>
+  <title>🧸 Happy Teddy Day , Sane </title>
   <style>
     body {
       text-align: center;
-      margin-top: 100px;
-      font-family: Arial, sans-serif;
-      background: #fff5f8;
+      margin-top: 80px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(#fff0f5, #ffe6ee);
+      overflow: hidden;
     }
-    button {
-      font-size: 20px;
-      padding: 10px 20px;
-      margin: 10px;
+
+    h1 {
+      color: #ff4d8d;
+    }
+
+    #teddy {
+      font-size: 120px;
       cursor: pointer;
-      border-radius: 10px;
-      border: none;
-      color: white;
-      transition: transform 0.2s ease;
+      animation: wiggle 1.5s infinite;
     }
-    .yes {
-      background: #ff4d8d;
-    }
-    .no {
-      background: #555;
-    }
-    .spin {
-      animation: spin 0.5s linear infinite;
-    }
-    @keyframes spin {
+
+    @keyframes wiggle {
       0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 4s linear infinite;
+      color: #ff4d8d;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: 0;
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #444;
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <h1 id="question">Will you be my Valentine? 💖</h1>
+  <h1>Happy Teddy Day 🧸💖</h1>
+  <p>Catch your teddy!</p>
 
-  <button class="yes" onclick="yes()">Yes 💘</button>
-  <button class="no" id="noBtn" onmouseover="moveNo()">No 💔</button>
+  <div id="teddy" onclick="showLove()">🧸</div>
+
+  <div id="message">
+    This teddy is a small gift,<br>
+    but my love for you is endless 💕<br>
+    Happy Teddy Day, my love 😘
+  </div>
 
   <script>
-    function yes() {
-      document.getElementById("question").innerText = "Malai the theyo 🥰💕";
-    }
+    function showLove() {
+      document.getElementById("message").style.display = "block";
 
-    function moveNo() {
-      const btn = document.getElementById("noBtn");
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
 
-      // Add spin
-      btn.classList.add("spin");
-
-      // Move to a random position
-      const x = Math.random() * 80; // 0 to 80%
-      const y = Math.random() * 50; // 0 to 50%
-
-      btn.style.position = "relative";
-      btn.style.left = x + "vw";
-      btn.style.top = y + "vh";
-
-      // Remove spin after 1 second
-      setTimeout(() => btn.classList.remove("spin"), 1000);
+        setTimeout(() => heart.remove(), 4000);
+      }
     }
   </script>
 
