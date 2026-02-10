@@ -54,8 +54,8 @@
 
   <h1 id="question">Here is your teddy, sane? 🧸💖</h1>
 
-  <button class="yes" onclick="yesClick()">Yes 😍</button>
-  <button class="no" onclick="noClick()">No 🙄</button>
+  <button class="yes" id="yesBtn" onclick="yesClick()">Yes 😍</button>
+  <button class="no" id="noBtn" onclick="noClick()">No 🙄</button>
 
   <div id="teddy">🧸💝</div>
   <div id="message"></div>
@@ -65,17 +65,21 @@
       document.getElementById("question").innerText = "Yayyy!! 🥰";
       document.getElementById("teddy").style.display = "block";
       document.getElementById("message").innerHTML =
-        "This teddy is for you 🤍<br>Whenever you miss me, hug it tight Sane 🫂<br>Happy Teddy Day 😘";
+        "This teddy is for you 🤍<br>" +
+        "Whenever you miss me, hug this tight Sane 🫂🧸<br>" +
+        "Happy Teddy Day, MAYA 😘";
+
+      // No button disappears forever 😌
+      document.getElementById("noBtn").style.display = "none";
     }
 
     function noClick() {
       document.getElementById("question").innerText =
         "You're supposed to click YES 😢";
       document.getElementById("message").innerText =
-        "Now I am sad... click yes and make me happy 🥺💔";
+        "Now I am sad... please click yes 🥺💔";
     }
   </script>
 
 </body>
 </html>
-
